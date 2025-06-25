@@ -1,0 +1,286 @@
+* {
+  font-family: 'Inter', sans-serif;
+  margin: 0;
+}
+
+body {
+  text-align: center;
+}
+
+@keyframes fadeInBody {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+body {
+  animation: fadeInBody 1s ease-out;
+}
+
+#dias1, #data1 {
+  padding: 0.5rem;
+  height: 4rem;
+  width: 6rem;
+  border-radius: 10px;
+  border: none;
+  background-color: #008080; /* teal */
+  outline: none;
+  color: white;
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#bt1 {
+  padding: 0.5rem;
+  height: 5rem;
+  width: 6rem;
+  border-radius: 10px;
+  border: none;
+  background-color: #008080; /* teal */
+  outline: none;
+  color: white;
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#bt1:hover {
+  background-color: #006666; /* darker teal */
+}
+
+#bt1:active {
+  background-color: #004c4c; /* even darker teal */
+}
+
+#txt_user {
+  margin-top: 0.5rem;
+  height: 3rem;
+  width: 20%;
+  border-radius: 10px;
+  border-style: solid;
+  outline: none;
+  font-size: x-large;
+  border-color: #004080; /* navy blue */
+  font-weight: 700;
+  background-color: #ffffff; /* white */
+  color: #004080; /* navy blue */
+  padding-left: 0.5rem;
+  box-sizing: border-box;
+}
+
+.sm1{
+  color: gray;
+  margin-top: 4%;
+  position: absolute;
+  margin-left: 8%;
+}
+
+.sm2{
+  color: gray;
+  margin-top: 4%;
+  position: absolute;
+  margin-left: 23%;
+}
+
+.obj {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  
+  width: 30%;
+  min-height: 6rem;
+
+  background-color: #ffffff; /* white */
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 128, 128, 0.15); /* teal shadow */
+
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #004080; /* navy blue */
+
+  padding: 1rem;
+  margin: 1rem auto;
+  box-sizing: border-box;
+  animation: fadeIn 0.5s ease;
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.obj:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 16px rgba(0, 64, 128, 0.25); /* darker navy shadow */
+  background-color: #e0f2f1; /* very light teal */
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+#hd1 {
+  margin-top: 2rem;
+  height: 12rem;
+  border-radius: 12px;
+  padding: 1rem;
+  box-shadow: 0 2px 8px rgba(0, 128, 128, 0.2); /* teal shadow */
+  box-sizing: border-box;
+}
+
+#hd1 form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+}
+
+#rm1 {
+  height: 1.8rem;
+  width: 2rem;
+  border-radius: 5px;
+  border: none;
+  background-color: #004080; /* navy blue */
+  color: white;
+  outline: none;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#rm1:hover {
+  background-color: #00264d; /* darker navy */
+}
+
+#rm1:active {
+  background-color: #001933; /* even darker navy */
+}
+
+#container {
+  height: 50rem;
+}
+
+header {
+  background: linear-gradient(120deg, #006666, #004080); /* teal to navy */
+  color: white;
+  padding: 40px 20px;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+header h1 {
+  font-size: 48px;
+  margin: 0 0 10px;
+  letter-spacing: 1px;
+  font-weight: 700;
+}
+
+header p {
+  font-size: 18px;
+  margin: 0;
+  color: #b2dfdb; /* light teal */
+  font-weight: 400;
+}
+
+nav {
+  margin-top: 20px;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  margin: 0 15px;
+  font-weight: 500;
+  padding: 5px 0;
+  border-bottom: 2px solid transparent;
+  transition: all 0.3s ease;
+}
+
+nav a:hover {
+  border-bottom: 2px solid #80cbc4; /* light teal */
+  color: #80cbc4;
+}
+
+@media screen and (max-width: 768px) {
+  #txt_user {
+    font-size: small;
+    width: 90%;
+  }
+
+  .sm1{
+  color: gray;
+  margin-top: 42%;
+  position: absolute;
+  margin-right: 67%;
+}
+
+  .sm2{
+  color: gray;
+  margin-top: 42%;
+  position: absolute;
+  margin-right: 25%;
+ 
+}
+
+  .obj {
+    width: 20rem;
+    font-size: large;
+    width: 90%;
+  }
+
+
+
+  #dias1, #data1 {
+    width: 4rem;
+    height: 2rem;
+  }
+
+  #bt1{
+  height: 3rem;
+  }
+
+  #hd1 {
+    margin-top: 1rem;
+  }
+
+  #hd1 form {
+    align-items: center;
+  }
+
+  header h1 {
+    font-size: 2rem;
+  }
+
+  header p {
+    font-size: 1rem;
+  }
+
+  nav{
+    display: flex;
+    gap: 1rem;
+  }
+
+  nav a {
+   
+    margin: 10px 0;
+  }
+
+  main h2 {
+    font-size: 1.8rem;
+  }
+
+  main p {
+    font-size: 1rem;
+    padding: 0 1rem;
+  }
+}

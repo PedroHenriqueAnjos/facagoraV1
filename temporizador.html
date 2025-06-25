@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cronometro</title>
+    <link rel="stylesheet" href="styletempo.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body> 
+    <header>
+    <center> 
+      <h1>Minha Rotina de Estudos</h1>
+      <p>Organize, aprenda e alcance seus objetivos com energia!</p>
+      <nav>
+        <a href="inicio.html">Início</a>
+        <a href="tarefas.html">Agenda</a>
+        <a href="temporizador.html">Temporizador</a>
+        <a href="gráfico.html">Gráfico</a>
+      </nav>
+    </center>
+  </header>
+  
+
+
+<div class="crono1">
+  <div>
+    <label for="input-hours">Horas: </label> <br>
+    <input type="number" id="input-hours" min="0" value="0" /> <br>
+    <label for="input-minutes">Minutos: </label><br>
+    <input type="number" id="input-minutes" min="0" max="59" value="0" /> <br>
+    <label for="input-seconds">Segundos: </label>
+    <input type="number" id="input-seconds" min="0" max="59" value="0" />
+  </div>
+  <p>Tempo restante: <span id="timer">00:00:00</span></p>
+  <div class="btns">
+    <button id="startButton">Iniciar</button>
+    <button id="stopButton" disabled>Parar</button>
+    <button id="resetButton">Resetar</button>
+  </div>
+</div>
+
+
+<script>
+    const timerDisplay = document.getElementById('timer');
+const startBtn = document.getElementById('startButton');
+const stopBtn = document.getElementById('stopButton');
+const resetBtn = document.getElementById('resetButton');
+
+const inputHours = document.getElementById('input-hours');
+const inputMinutes = document.getElementById('input-minutes');
+const inputSeconds = document.getElementById('input-seconds');
+
+let totalSeconds = 0;
+let remainingSeconds = 0;
+let intervalId = null;
+
+function formatTime(seconds) {
+  const hrs = Math.floor(seconds / 3600);
+  const mins = Math.floor((seconds % 3600) / 60);
+  const secs = seconds % 60;
+  return `${String(hrs).padStart(2,'0')}:${String(mins).padStart(2,'0')}:${String(secs).padStart(2,'0')}`;
+}
+
+function updateDisplay() {
+  timerDisplay.textContent = formatTime(remainingSeconds);
+}
+
+startBtn.addEventListener('click', () => {
+  if (intervalId) return;
+
+  const hrs = parseInt(inputHours.value) || 0;
+  const mins = parseInt(inputMinutes.value) || 0;
+  const secs = parseInt(inputSeconds.value) || 0;
+
+  if (hrs < 0 || mins < 0 || secs < 0) {
+    alert('Digite valores positivos para horas, minutos e segundos.');
+    return;
+  }
+
+  if (mins > 59 || secs > 59) {
+    alert('Minutos e segundos devem estar entre 0 e 59.');
+    return;
+  }
+
+  const totalInputSeconds = hrs * 3600 + mins * 60 + secs;
+
+  if (totalInputSeconds === 0 && remainingSeconds === 0) {
+    alert('Digite um tempo maior que zero.');
+    return;
+  }
+
+  if (remainingSeconds === 0) {
+    totalSeconds = totalInputSeconds;
+    remainingSeconds = totalSeconds;
+  }
+
+  intervalId = setInterval(() => {
+    if (remainingSeconds > 0) {
+      remainingSeconds--;
+      updateDisplay();
+    } else {
+      clearInterval(intervalId);
+      intervalId = null;
+      alert('Tempo esgotado!');
+      startBtn.disabled = false;
+      stopBtn.disabled = true;
+      inputHours.disabled = false;
+      inputMinutes.disabled = false;
+      inputSeconds.disabled = false;
+    }
+  }, 1000);
+
+  startBtn.disabled = true;
+  stopBtn.disabled = false;
+
+  inputHours.disabled = true;
+  inputMinutes.disabled = true;
+  inputSeconds.disabled = true;
+});
+
+stopBtn.addEventListener('click', () => {
+  clearInterval(intervalId);
+  intervalId = null;
+  startBtn.disabled = false;
+  stopBtn.disabled = true;
+});
+
+resetBtn.addEventListener('click', () => {
+  clearInterval(intervalId);
+  intervalId = null;
+  remainingSeconds = 0;
+  totalSeconds = 0;
+  updateDisplay();
+
+  inputHours.disabled = false;
+  inputMinutes.disabled = false;
+  inputSeconds.disabled = false;
+
+  startBtn.disabled = false;
+  stopBtn.disabled = true;
+});
+
+updateDisplay();
+
+
+
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ínicio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styleinicio.css">
+   
+</head>
+<body>
+   
+ <header>
+    <center> 
+      <h1>Minha Rotina de Estudos</h1>
+      <p>Organize, aprenda e alcance seus objetivos com energia!</p>
+      <nav>
+        <a href="inicio.html">Início</a>
+        <a href="tarefas.html">Agenda</a>
+        <a href="temporizador.html">Temporizador</a>
+        <a href="gráfico.html">Gráfico</a>
+      </nav>
+    </center>
+  </header>
+
+
+  <main>
+    <h2>Comece a turbinar sua produtividade hoje</h2>
+    <p>O que você precisa fazer hoje?</p>
+    <button class="comecar"><a href="tarefas.html">Agenda</a></button>
+    <button class="comecar"><a href="temporizador.html">Temporizador</a></button>
+    <button class="comecar"><a href="gráfico.html">Gráfico</a></button>
+  </main>
+
+  <div class="fundo-animado" aria-hidden="true">
+    <div class="faixa-imagens" id="faixaImagens">
+      <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=250&q=80" alt="">
+      <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=250&q=80" alt="">
+      <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=250&q=80" alt="">
+      <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=250&q=80" alt="">
+      
+  
+    </div>
+  </div>
+
+  <footer>
+    &copy; 2025 Minha Rotina de Estudos — Todos os direitos reservados
+  </footer>
+
+  <script>
+
+     window.onload = function () {
+      const faixa = document.getElementById('faixaImagens');
+      faixa.innerHTML += faixa.innerHTML; // Duplicar imagens
+      let posicao = 0;
+      const velocidade = 0.5;
+
+      function animar() {
+        posicao -= velocidade;
+        if (Math.abs(posicao) >= faixa.scrollWidth / 2) {
+          posicao = 0;
+        }
+        faixa.style.transform = `translateX(${posicao}px)`;
+        requestAnimationFrame(animar);
+      }
+
+      animar();
+    };
+  </script>
+</body>
+</html>

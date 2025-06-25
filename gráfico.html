@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Gráfico</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="stylegrafico.css" />
+</head>
+<body>
+    <header>
+    <center> 
+      <h1>Minha Rotina de Estudos</h1>
+      <p>Organize, aprenda e alcance seus objetivos com energia!</p>
+      <nav>
+        <a href="inicio.html">Início</a>
+        <a href="tarefas.html">Agenda</a>
+        <a href="temporizador.html">Temporizador</a>
+        <a href="gráfico.html">Gráfico</a>
+      </nav>
+    </center>
+  </header>
+ 
+    <h1 class="title">Veja suas estatísticas semanais</h1>
+ 
+
+  <main class="container">
+    <section class="section input-section">
+      <h2 class="subtitle">Registrar tempo (Horas)</h2>
+      <input type="number" id="input-time" class="input" min="1" placeholder="Ex: 30" />
+      <button id="btn-submit" class="btn">Adicionar</button>
+    </section>
+
+    <section class="section chart-section">
+      <h2 class="subtitle">Progresso semanal</h2>
+      <canvas id="chart" class="chart-canvas" width="700" height="250"></canvas>
+    </section>
+      <button id="reset">Limpar Dados</button>
+  </main>
+
+
+  <footer class="footer">
+    &copy; 2025 Rotina Estudos — Todos os direitos reservados
+  </footer>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="grafico.js"></script>
+</body>
+</html>

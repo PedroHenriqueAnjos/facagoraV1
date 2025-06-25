@@ -1,0 +1,53 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agenda</title>
+
+    <script src="tarefas.js"></script>
+    <link rel="stylesheet" href="styletarefas.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+  <header>
+    <center> 
+      <h1>Minha Rotina de Estudos</h1>
+      <p>Organize, aprenda e alcance seus objetivos com energia!</p>
+      <nav>
+        <a href="inicio.html">Início</a>
+        <a href="tarefas.html">Agenda</a>
+        <a href="temporizador.html">Temporizador</a>
+        <a href="gráfico.html">Gráfico</a>
+      </nav>
+    </center>
+  </header>
+
+
+<div id="hd1">
+  <form>
+    <input id="txt_user" type="text" placeholder="Adicione a Tarefa!">
+    <br><br>
+    <input id="dias1" type="time" step="3600"><br>
+    <small class="sm1">Escolha o<br> horário</small>
+
+    <input id="data1" type="date">
+    <small class="sm2">Escolha a <br> data</small>
+    <button type="button" onclick="adicionar()" id="bt1">
+      <i class="fa fa-plus"></i> Adicione
+    </button>  
+  </form>
+</div>
+
+    <main id="mn1">
+        <div id="container">
+           
+        </div>
+    </main>
+
+     
+</body>
+</html>
